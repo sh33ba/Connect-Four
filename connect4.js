@@ -7,7 +7,7 @@ p1 = p1.toUpperCase();
 var p2 = prompt('Player Two: Enter Your Name, you will be Red');
 var p2Color = 'rgb(237, 45, 73)';
 
-p1 = p1.toUpperCase();
+p2 = p2.toUpperCase();
 
 var game_on = true;
 var table = $('table tr');
@@ -105,12 +105,8 @@ $('.board button').on('click', function(){
     changeColor(bottomAvail,col,currentColor);
 
     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
+        
         $('.reset').text(currentName + " You have WON! Refresh page to play again 😄").css('font-size', '100px');
-        if (currentName == p1) {
-            $(currentName).css('color', p1Color);
-        } else {
-            $(currentName).css('color', p2Color);
-        }
         
     }
 
