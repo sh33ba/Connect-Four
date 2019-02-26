@@ -106,7 +106,7 @@ $('.board button').on('click', function(){
 
     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
         
-        $('.reset').text(currentName + " You have WON! Refresh page to play again 😄").css('font-size', '100px');
+        $('.reset').text(currentName + " You have WON! Refresh page to play again 😄").css('font-size', '4em');
         
     }
 
