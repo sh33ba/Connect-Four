@@ -2,8 +2,12 @@
 var p1 =prompt('Player one: Enter Your Name , you will be Blue');
 var p1Color = 'rgb(86, 152, 255)'
 
+p1 = p1.toUpperCase();
+
 var p2 = prompt('Player Two: Enter Your Name, you will be Red');
 var p2Color = 'rgb(237, 45, 73)';
+
+p1 = p1.toUpperCase();
 
 var game_on = true;
 var table = $('table tr');
@@ -90,6 +94,7 @@ var currentName = p1;
 var currentColor = p1Color;
 
 $('h3').text(p1 + ' it is your turn, pick a column to drop in!')
+$('h3').css('color', p1Color)
 
 $('.board button').on('click', function(){
 
@@ -101,6 +106,11 @@ $('.board button').on('click', function(){
 
     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
         $('.reset').text(currentName + " You have WON! Refresh page to play again 😄").css('font-size', '100px');
+        if (currentName == p1) {
+            $(currentName).css('color', p1Color);
+        } else {
+            $(currentName).css('color', p2Color);
+        }
         
     }
 
@@ -110,11 +120,13 @@ $('.board button').on('click', function(){
     if (currentPlayer === 1) {
         currentName = p1;
         $('h3').text(currentName+ ' it is your turn.');
+        $('h3').css('color',p1Color)
         currentColor = p1Color;
     } else {
         currentName = p2;
         $('h3').text(currentName+ ' it is your turn.');
         currentColor = p2Color;
+        $('h3').css('color',p2Color)
     }
 
 })
